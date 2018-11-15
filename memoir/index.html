@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PHP 답변형 게시판 설계 & 회고</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/resume.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Clarence Taylor</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile_img.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#education">설계</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#experience">진행 & 회고</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#skills">프로젝트를 마치며</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="http://54.180.29.9">게시판으로 이동</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="https://github.com/comjunsik">Git으로 이동</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid p-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+          <h1 class="mb-0">PHP 답변형 게시판<br>
+            <span class="text-primary" style=" margin-left: 350px;">설계 & 회고</span>
+          </h1><br>
+          <div class="subheading mb-5">성공회대학교 원준식 · tel)010-9871-0774
+            <a href="http://54.180.29.9" style="margin-left: 60px">link) 답변형 게시판  &nbsp;&nbsp;· </a>
+            <a href="https://github.com/comjunsik" style="margin-left: 20px">github.com/comjunsik</a>
+          </div>
+          <p class="lead mb-5">근 2주 동안 진행한 php를 이용한 답변형 게시판 설계 & 회고록입니다<br>
+            처음 답변형 게시판을 구상할 때, 가장 우선시 되어야 할 기능은 <strong>답변글 작성, 덧글 기능,</strong> <br>
+            자신의 게시물에 답변글과 덧글이 등록 되었을때 <strong>알림</strong>이 오도록 하는 기능을 최우선으로 생각하였습니다.<br>
+            PHP로 프로그래밍 하는것이 난생 처음이라 걱정되고 조급했지만, 빠르게 익숙해져 원하는 기능들을 구현할 수 있게 되었습니다.
+          </p>
+
+          </div>
+
+      </section>
+
+
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
+        <div class="my-auto">
+          <h2 class="mb-5">설계</h2>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">1. 관리자, 회원 기본기능</h3>
+              <div class="subheading mb-3">회원가입, 로그인, 개인정보 수정, 관리자 회원관리</div>
+              <div><img src="./img/member&admin.jpg"></div><br>
+              <p>로그인 하지 않아 SESSION 에 회원 정보가 저장되어 있지 않을 시 메인 페이지 우상단에 로그인 | 회원가입 메뉴가 보이게 됩니다.<br>
+                로그인을 하게되면 메인페이지 우 상단에 로그아웃 | 정보 수정 메뉴가 나타나게 됩니다.<br>
+                만약 관리자  id : 'admin'으로 로그인 하게 되면 추가로 | 회원 정보 관리 | 메뉴가 나오게 됩니다.<br>
+                ./admin/list.php 에서 회원 조회를 할때 select 박스를 통해 이름 과 닉네임으로 검색을 할수 있게 구성하였습니다.<br>
+                또한 한 페이지에 5명의 회원씩 3페이지 단위로 페이징을 하였습니다.
+                <br><div>테이블명: member<img src="./img/member_db.GIF"></div>
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary" style="margin-right: 150px">2018 - 11/05~06</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">2. 방명록</h3>
+              <div class="subheading mb-3">방명록을 남길 수 있는 페이지</div>
+              <div style="margin-left: 350px"><img src="./img/memo.jpg"></div><br>
+              <p>게시판 웹 사이트를 들어왔을때 간단하게 방명록을 남길 수 있는 페이지를 만들었습니다.<br>
+                메뉴바에 방명록 항목을 클릭하면 memo.php로 이동하며, 해당 페이지에 간단한 글을 작성, 삭제할 수 있습니다.<br>
+                로그인을 하지 않으면 글 목록만 조회가 가능하고 작성이 불가능합니다. 삭제는 관리자와 본인만 할 수 있습니다.<br>
+                5개의 글이 한 페이지에 보이고 페이지 수는 3페이지 단위로 페이징을 하였습니다.
+                <br><div>테이블명: memo<img src="./img/memo_db.GIF"></div>
+
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary" style="margin-right: 100px">2018 - 11/15 </span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row" style="margin-top: 80px">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">3. 답변형 게시판</h3>
+              <div class="subheading mb-3">질의 응답(답변글, 덧글 작성), 알림을 받을 수 있는 답변형 게시판</div>
+              <div><img src="./img/qna_03.jpg"></div><br>
+              <p>&nbsp; 글 작성시 <strong>첨부 파일</strong>을 3개 등록 할수 있게 구성하였습니다.<br>
+                첨부 파일은 보안상 php|inc|html|exe|sh|bat 확장자는 업로드 할 수 없도록 막아 놓았습니다.<br>
+                <br>&nbsp;<strong>답변글</strong> 작성은 해당 게시물의 응답 게시물입니다. <br>
+                게시글에 대한 <strong>검색</strong>은 제목, 내용, 닉네임, 이름을 통해 검색할수 잇게 구상하였고,list.php에서 처리하도록 구상하였습니다.<br>
+                게시글 수정, 답변글, 답변글에 대한 알림 저장은 insert.php 한 페이지에서 처리하도록 구상하였습니다.<br>
+
+                <br>
+                <div> 테이블명: qna<img src="./img/qna_db.GIF"></div>
+                db테이블에 <u>'group_num'</u> 이라는 칼럼을 주어 최상위 게시물에 속해있는 답변글이라는 것을 저장 하였습니다.<br>
+                또한 <u>'depth'</u> 라는 칼럼을 주어 답변글에 대한 답변글이라는 것을 저장 하였습니다.<br>
+                그리고 <u>'ord'</u> 라는 칼럼으로 답변글들 중 최신글이 위로 올라가게 order by를 하였습니다.<br>
+                <u>'parent'</u> 라는 칼럼으로 게시글이 어느 게시글에 대한 답변글인지를 저장하였고, CASCADE를 통해 어떤 게시글이 삭제되면 <br>
+                그 게시글에 대한 답변글들도 삭제되게 하였습니다.<br><br>
+<hr color="grey">
+<br>
+              &nbsp; <strong>덧글 기능</strong>은 어떠한 게시물의 아래에 작성되는 간단한 메모 글입니다.<br>
+              수정 폼은 view.php에서 덧글 작성시 사용했던 폼을 그대로 사용하였습니다.<br>
+              해당 덧글의 내용을 불러오기 위해 view.php에서 ripple_num.php 페이지로 Ajax를 이용해 비동기적으로 내용을 불러 왔습니다.<br>
+              덧글에 대한 신규 작성, 수정, 알림 저장을 insert_ripple.php에서 처리하도록 구상 하였습니다.<br>
+<br>
+              <br>
+              <div>테이블명: qna_ripple<img src="./img/qna_ripple_db.GIF"></div>
+              <u>'parent'</u>라는 칼럼을 넣어 어떤 게시물에 대한 덧글인지를 저장하고 qna 테이블의 num에 foreign key로 설정하고<br>
+              qna 레코드가 delete시 제약조건으로 cascade를 설정하여 부모 게시글이 삭제 될시 해당 게시글의 덧글들도 삭제되게 설정하였습니다.<br>
+
+              <br><hr color="grey">
+
+              <br>
+              &nbsp; <strong>알림 기능</strong>은 자신이 작성한 게시글에 답변글이나 덧글이 달렸을 시 해당 게시물을 작성한 회원에게 메뉴바에 답변글 혹은 덧글이 달렸다는 표시를 보여주고,<br>
+              해당 표시를 클릭하면, 답변글 혹은 덧글이 달린 자신의 게시물로 이동할수 있는 링크 학목을 보여주도록 구상하였습니다.<br>
+              <br><div>테이블명: notify<img src="./img/notify_db.GIF"></div>
+              <u>'id'</u> 라는 칼럼에는 답변이나 덧글이 달린 부모글을 작성한 작성자의 id가 들어가도록 설계하였습니다.<br>
+              <u>'chechked'</u> 라는 칼럼을 이용해 view.php에서 덧글이나 답변글을 확인하면 값을 Y로 바꾸게 설계하였습니다.<br>
+              <u>'page'</u> 라는 칼럼에는 이동하게 되는 게시글이 페이징된 몇 페이지중에 어떤 페이지에 속해있는지에 대한 정보를 저장하도록 설계하였습니다.<br>
+              view.php 에서 '목록' 버튼을 클릭하게 되면 해당 게시글이 속한 페이지에 돌아가도록 설계하였습니다.<br>
+
+
+
+
+
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary" style="margin-right: 100px">2018 - 11/05~15 </span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+        <div class="my-auto">
+          <h2 class="mb-5">진행 & 회고</h2>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">서버 세팅</h3>
+              <div class="subheading mb-3">APM 서버세팅 & intellij 리모트 호스트</div>
+              <p>&nbsp; &nbsp;AWS를 이용해 Ubuntu 18.04 에서 웹서버(Apache2 + PHP 7.2 + MySQL 5.7.24)로 서버 세팅을 하였습니다.<br>
+                한 번도 remote host를 통해 작업해 본적이 없어서 이번 기회에 romote host작업을 해보았습니다.<br>
+                서버 세팅은 apt를 이용해 어느정도 빠르게 세팅할 수 있었지만, remote host 세팅이 처음이라 시간을 좀 잡아 먹었습니다.<br>
+                또한 디버깅을 위해 Xdebug를 이용하였습니다. 하지만 이 것도 처음 해보는 시도라 세팅을 하는데 다음 날까지 시간이 걸렸습니다.<br>
+                하지만 로컬에서 작업하고 FTP를 통해 배포를 했던 제가 rmote host와 Xdebuging을 이용하는 방법을 알게 되어 좋은 경험이 되었습니다.
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018 - 11 - 02(금)</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">PHP에 대해</h3>
+              <div class="subheading mb-3">Xdebug 마무리 세팅과 php 기본 공부</div>
+              <p>&nbsp; &nbsp;Xdebug 세팅 작업을 마무리 하였습니다. 서치를 해보니 intellj를 이용한 예시가 별로 없어 작업이 좀 오래 걸렸습니다.<br>
+              난생 처음으로 PHP를 이용한 프로그래밍을 하게되어 전날 학교에서 빌려논 php 기본 서적을 통해 php에 대해 공부하기 시작했습니다.<br>
+                간단한 예시들은 따라해보고, 문법이나 사용함수 db 접근방법등을 빠르게 흝었습니다.<br>
+                처음에 계획할 때에는 php에 대한 기본 공부를 3일 정도 잡고 시작하였지만, C언어 기반이고 jsp보다 db 접근 방식이 간단하고 직관적이여서 빠르게 익숙해 질 수 있었습니다.<br>
+                처음으로 php를 이용해 회원가입과 로그인 기능을 구현해 볼 수 있었습니다.
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018 - 11 - 03(토)</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">보안에 대해서</h3>
+              <div class="subheading mb-3">xss, sql injection, csrf</div>
+              <p>&nbsp; &nbsp; 과제로 제시된 XSS와 sql Injection, CSRF 공격과 그에 대한 방어 기법들을 살펴 보았씁니다.<br>
+              JSP로 프로그래밍을 할때 보안상 이렇게 해야한다고만 알고 있었던 것이 무엇 때문에 어떻게 해야한다라는 것을 알게 되었습니다.<br>
+                그냥 한 번 보기만 하고 넘어 갔던 지난날의 저에 대해 부끄러움을 느꼈습니다.<br>
+                XSS와 SQL 인젝션 방어를 htmlspecialchars() 메서드와 prepate statement를 통해 적용해 보고, <br>
+                CSRF 방어를 페이지 이동시 임의의 tokn값을 넘기고 받는식으로 적용해 보았습니다.
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018 - 11 - 04(일)</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">PDO (PHP Data Objects)</h3>
+              <div class="subheading mb-3">PDO와 템플릿 적용</div>
+              <p>&nbsp; &nbsp;이날 PHP PDO에 대해 알게 되었습니다. 기존의 저는 mysqli를 이용해 작업을 진행하고 있었습니다.<br>
+                하지만 현재 mysql은 php에서 제외 되었고 추후에는 mysqli또한 php에서 제외 될 예정이라는 것을 알게 되어, 현재 까지 작업한 mysqli를 PDO로 바꾸게 되었습니다.<br>
+                또한 front-end framework를 사용해도 된다는 것을 알게 되어, bootstrap에서 제공해주는 템플리을 적용하려고 하였습니다.<br>
+                하지만 이전에 로컬에서 템플릿을 적용하고 서버에 배포할 때에는 경로상에 문제가 없었지만, 서버에서 직접 다운로드 하지 않고,
+                텝플릿 압축을 푼 폴더들을 sftp로 업로드 하니 경로가 적용이 되지 않았습니다.<br> 해서 템프릿 적용은 추후에 생각하기로 하고
+                기존에 제가 작업했었던 css와 html파일들로 다시 작업을 시작 하였습니다.
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018 - 11 - 05(월)</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">게시판 시작</h3>
+              <div class="subheading mb-3">회원가입시 Ajax 사용 & 게시판 글 작성, 글 목록</div>
+              <p>&nbsp; &nbsp; 화요일, 수요일은 현재 진행중인 jsp 졸업 시뮬레이션 프로젝트 작업을 하였습니다.<br>
+                ajax를 이용해 회원가입시 아이디 중복 체크와 닉네임 중복체크 기능을 구현하였습니다.<br>
+                bootstrap 모달창을 이용하고 싶어 bootstrap css를 적용하니 css간 충돌이 있었습니다.<br>
+                덕분에 css 스타일 적용 우선 순위와 !important 선언에 대해 학습 할 수 있었습니다.<br>
+                <br>
+                상단의 그림과 로그인 | 회원가입 | 부분<br>
+                '메뉴바' , '왼쪽 메뉴' 를 커스텀 태그로 분리 하였습니다.<br>
+                lib/top_login1.php, top_login2.php<br>
+                lib/top_menu1.php, top_menu1.php<br>
+                로 나눈 이유는 php 페이지 접근 시에 index.php와 다른 php 페이지가 경로가 다르기 때문입니다.
+
+
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018 - 11 -08(목)</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">게시글 보기 & 검색 & 수정</h3>
+              <div class="subheading mb-3">게시글 보기, 검색, 글 수정, 조회수 증가기능</div>
+              <p>&nbsp; &nbsp; 게시글을 볼수 있는 view.php를 작성하였습니다.<br>
+                글 수정 페이지와 조회수 증가기능을 구현하였습니다.<br>
+                글 수정 php파일을 따로 만들지 않고 mode 라는 변수를 주어 mode="modify"일때 수정되도록 하여,<br>
+                신규글 작성과 글 수정기능을 insert.php 에서 함께 수행하도록 구현하였습니다.<br>
+                <div><img src="./img/mode.GIF"></div><br>
+              <div><img src="./img/mode2.GIF"></div><br>
+              검색 기능 구현시 처음에 검색 버튼 클릭 시 list.php에 post 방식으로 data를 전달하게 하였더니, 검색을 진행하고
+              새로고침을 하게 되면 '양식 다시 제출' 창이 뜨게 되었습니다. 이 창이 뜨는 이유를 처음으로 알게 되었고 로케이션 href로 처리했냐 <br>
+              form submit 시 post로 처리 했냐 차이라는 것을 알게 되었습니다.<br>
+              해서 post를 get으로 바꿔 전송하니 해결 되었고, 검색에는
+              <div><img src="./img/search.GIF"></div><br>
+              위 사진처럼 sql문을 string array로 처리하고 prepare()을 이용해 인젝션을 방지하였습니다.
+
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018 - 11 -09(금)</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">답변글</h3>
+              <div class="subheading mb-3">답변글 기능, 페이징 처리. 파일 업로드 기능</div>
+              <p>&nbsp; &nbsp; <strong>게시판 답변글 기능</strong>을 구현 하였습니다.<br>
+                변수 mode="response" 일때 답변 기능을 수행하도록 insert.php 에 구현하였습니다.<br>
+              <div><img src="./img/response.GIF"></div><br>
+                db 테이블 'group_num' 이라는 칼럼으로 답변글이 속한 그룹을 구분하였습니다.<br>
+                'depth'라는 칼럼을 이용해 그냥 답변인지 답변글에 대한 답변인지를 구분하였습니다.<br>
+                'ord' 라는 칼럼을 이용해 같은 depth에 있는 최신 답변글을 위로 정렬하였습니다.<br>
+              한 페이지에 10개의 게시물씩 3페이지 단위로 <strong>페이징</strong>을 하였습니다.<br>
+
+               <br> <strong>파일 업로드 기능</strong>을 구현하였습니다.
+              <div><img src="./img/uploadfile.GIF"></div><br>
+              보안상 위험할 수 있는 파일들을 업로드 하지 못하도록 하였습니다.
+              만약 <strong>이미지 파일</strong>이면 (image/gif, image/jpeg, image/png) 화면상에 뿌려 주었습니다.<br>
+              글 수정시 업로드된 파일 옆의 삭제 체크 박스를 클릭하면 파일이 삭제되도록 하였습니다.<br>
+              해당 게시글
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018 - 11 -10~11(토, 일)</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">덧글</h3>
+              <div class="subheading mb-3">덧글 작성, 수정, 삭제, 페이징</div>
+              <p>&nbsp; &nbsp; <strong>덧글 수정 기능</strong>을 구현하는데 시간이 걸렸습니다.<br>
+                처음에 onclick() 메서드를 통해 document.getElementById()로 해당 내용을 가져워 덧글 입력창에 뿌려 주려 했지만,<br>
+                반복문을 통해 화면에 출력하는 덧글 코드상 해당 덧글을 작성한 사용자가 마지막으로 작성한 내용을 가져온다는 것을 알았습니다.<br>
+                고민한 결과 onclick() 메서드의 파라미터로 해당 덧글의 프라이머리 키인 num을 넘겨주고,<br>
+                Ajax를 이용해 ripple_num.php 페이지로 이동하여 해당 덧글의 내용을 가져오는 식으로 구현을 하였습니다.<br>
+                회고록을 작성하는 동안 onclick() 파라미터로 해당 덧글 내용을 넘기는 것이 생각나 잠깐 코딩을 해보았지만, 원하는 결과가 나오지 않았습니다.<br>
+                왜 그런지는 조금 더 고민해 봐야 할것 같습니다.<br>
+                <br>
+                &nbsp;&nbsp; <strong>덧글 페이징</strong>을 구현하는데에도 시간이 걸렸습니다.<br>
+                게시글 목록을 페이징 하는 방법과 같이 페이징을 구현을 하였지만, 어떤 게시글에 페이징된 목록이 다른 게시글에도 보이는 오류가 있었습니다.<br>
+                여러가지 시도를 하다라가 덧글 db table에 'parent' 칼럼을 추가하여 덧글이 달린 게시물에서만 덧글 개수를 가져오도록 sql문에 조건을 추가 하여 해결하였습니다.<br>
+
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018 - 11 -12~13(월, 화)</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">알림</h3>
+              <div class="subheading mb-3">자신이 작성한 게시글에 덧글, 답변글이 달릴시 알림기능 구현</div>
+              <p>&nbsp; &nbsp; <strong>알림 기능</strong><br>
+              <span><img src="./img/notify01.GIF"><img src="./img/notify02.GIF" style="margin-left: 80px"></span><br>
+                자신이 작성한 게시물에 답글이나 덧글이 달리면 메뉴바에 알림이 보이도록 구현하였습니다.<br>
+                또한 알림을 확인하게 되면 'checked' 칼럼이 Y로 바뀌에 되면서 더이상 알림 항목에는 표시 되지 않게 하였습니다.<br>
+                그리고 게시글이 삭제되면 해당 게시글에 대한 알림들도 같이 삭제되게 구현하였습니다.<br>
+
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018 - 11 -14(수)</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">회고록 작성</h3>
+              <div class="subheading mb-3">템플릿을 이용해 회고록 작성 & 관리자 회원관리 페이지 작성</div>
+              <p>&nbsp; &nbsp; 저번에 사용하는데 애로사항이 있던 템플릿으로 회고록 작성을 시도 하였습니다.<br>
+                관리자 회원관리 페이지를 작성하였습니다. 관리자로 로그인 했을 때만 화면 상단에 '회원 관리' 항목이 표시 되게 하였습니다.<br>
+                방명록 페이지를 작성하였습니다.<br>
+                코드를 정리하고 자잘한 오류를 해결하였습니다.<br>
+                알림 목록에서 해당 알림을 클릭시 table에서 삭제되게 하였습니다.<br>
+                하지만 회고록을 작성하던 도중 차라리 해당 알림을 확인하게 되었을때 table에서 삭제하는 것이 더 좋을것 같아 view.php 에서 delete를 실행하였습니다. 결국 /lib/delete_notify 페이와 top_menu의 삭제를 위한 onclick함수가 쓸모가 없어 졌습니다...<br>
+                게시물의 조회수를 같은 아이디로 늘릴 수 없도록 쿠키를 이용하여 방지하려 했지만, 시간이 부족해 다 작업하지 못했습니다.<br>
+                프로젝트를 진행 하며 조회수 방지를 끝내려고 합니다.
+
+              </p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018 - 11 -15(목)</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+        <div class="my-auto">
+          <h2 class="mb-5">프로젝트를 마치며..</h2>
+          <p>&nbsp;&nbsp; 처음으로 php를 사용해 웹 프로그래밍을 하였습니다.<br>
+            걱정이 앞섰지만, 빠르게 익숙해 질 수 있었고, 오히려 php상의 여러 함수들, 구조 자체가 직관적으로 되어 있음을 느낄 수 있었고, 조금 익숙해지니 빠르게 기능을 구현할 수 있었습니다.<br>
+            2주라는 짧다면 짧고 길다면 길다 할수 있는 기간동안, 정말 하루하루 빠르게 실력이 늘어 코딩이 즐겁고 잠자리에 누우면 어떤식으로 구현을 할지 밖에 생각이 안들었습니다.<br>
+            잠도 잊고 php 구현에 매달려 몸은 조금 힘들었지만, 정말 보람있는 2주였습니다.<br>
+            여러가지 미진한 부분이 있지만 애초에 구현하려고 했던 기능들을 모두 구현할 수 있어 아쉽기도 하고 기분이 좋기도합니다.<br>
+            이러한 기회를 주셔서 정말 감사히 생각합니다.<br>
+            좋은 하루 보내시기 바랍니다.
+          </p>
+        </div>
+        <div class="resume-date text-md-right">
+          <span class="text-primary">2018 - 11 -16</span>
+        </div>
+      </section>
+
+      <hr class="m-0">
+
+
+
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/resume.min.js"></script>
+
+  </body>
+
+</html>
