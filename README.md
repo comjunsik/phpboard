@@ -9,3 +9,5 @@ php를 이용한 답변형 게시판입니다.
 # 방명록 & 글 작성 & 파일 업로드
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/41488792/48589340-70a7db00-e97e-11e8-818b-f93af9bd028c.gif)
 
+# 댓글 & 알림 기능
+![ezgif com-video-to-gif 1](https://user-images.githubusercontent.com/41488792/48589457-fd529900-e97e-11e8-84b9-237d31781239.gif)
